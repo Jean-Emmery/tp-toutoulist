@@ -1,21 +1,18 @@
 window.onload=  () =>{
     const formulaire_list = document.querySelector('#addForm');
-
     let tasks = document.getElementById('tasks');
     let submit = document.getElementById('submit');
-
-    let editItem = null;
-
-    formulaire_list.addEventListener('submit', addItem);
+    let editTask = null;
+    formulaire_list.addEventListener('submit', addTask);
     tasks.addEventListener('click', removeItem);
 }
 
  // Fonction pour l'ajout d'un item ici une tâche //
 
-function addItem(e) {
-      e.preventDefault();
+function addTask(news) {
+      news.preventDefault();
     if(submit.value != 'Ajouter'){
-        editItem.target.parentNode.childNodes[0].data = document.getElementById('task').value;
+        editTask.target.parentNode.childNodes[0].data = document.getElementById('task').value;
         submit.value = "Ajouter";
         document.getElementById('task').value = '';
         
@@ -26,8 +23,8 @@ function addItem(e) {
         return false;
     }
 
-    let newItem = document.getElementById('task').value;
-    if(newItem.trim() == '' || newItem.trim() ==null){
+    let newTask = document.getElementById('task').value;
+    if(newTask.trim() == '' || newTask.trim() ==null){
         return false;
     }else{
         document.getElementById('task').value = '';
@@ -53,12 +50,12 @@ function addItem(e) {
     let editButton = document.createElement('button');
     editButton.className = "btn-success btn btn-sm float-right edit";
 
-    editButton.appendChild(document.createTextNode("Modifier"));
     checkButton.appendChild(document.createTextNode("Fait"));
+    editButton.appendChild(document.createTextNode("Modifier"));
     deleteButton.appendChild(document.createTextNode("Supprimer"));
 
 
-    li.appendChild(document.createTextNode(newItem));
+    li.appendChild(document.createTextNode(newTask));
     li.appendChild(checkButton);
     li.appendChild(deleteButton);
     li.appendChild(editButton);
@@ -67,22 +64,22 @@ function addItem(e) {
 }
 
  // Fonction supprimer un item ici une tâche //
-function removeItem(e){
+function removeItem(news){
 
-    e.preventDefault();
-    if(e.target.classList.contains('delete')){
+    news.preventDefault();
+    if(news.target.classList.contains('delete')){
         if(confirm("Vous voulez vraiment supprimer la tâche ?")){
-            let li = e.target.parentNode;
+            let li = news.target.parentNode;
             tasks.removeChild(li);
             document.getElementById("success").innerHTML = "Tâche supprimé";
             document.getElementById("success").style.display = "block";
             setTimeout( function(){ document.getElementById("success").style.display = "none"; } ,3000);		
         }
     }
-    if(e.target.classList.contains('edit')){
-        document.getElementById('task').value = e.target.parentNode.childNodes[0].data;
+    if(news.target.classList.contains('edit')){
+        document.getElementById('task').value = news.target.parentNode.childNodes[0].data;
         submit.value = "EDIT";
-        editItem = e;		
+        editTask = news;		
     }
 }
 

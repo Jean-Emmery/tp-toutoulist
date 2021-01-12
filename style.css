@@ -1,8 +1,13 @@
 .checked {
-    background-color: #2F4F4F;
+    background-color: #9DDDFF;
     text-decoration: line-through;
+    color: white;
 }
 
 .btn-warning {
     color: white;
+}
+
+.btn {
+    margin-right: 1%;
 }
