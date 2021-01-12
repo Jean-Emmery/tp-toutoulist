@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src = "main.js"></script>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <title>Toutoulist</title>
+</head>
+<body>
+    <header class = "bg-info text-white p-4 text-center">
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-lg-12 col-md-12 col-sm-12">
+                    <h1>TP – JavaScript</h1>
+                    <h2>“ TOUTOULIST ”</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class = "container mt-4">
+        <h2>Nouvelle tâche</h2>
+
+        <label id = "success" class = "text-success" style = "display: none;"></label>
+        <form id = "addForm">
+            <div class = "row">
+                <div class = "col-lg-7 col-md-7 col-sm-7"><input type = "text" onkeyup="toggleButton(this, 'submit')" class = "form-control" id = "task"></div>
+                <div class = "col-lg-5 col-md-5 col-sm-5"><input type = "submit" class = "btn btn-info" id = "submit" value = "Ajouter" disabled></div>
+            </div>
+        </form>
+
+        <h2 class = "mt-5 text-center">Liste des tâches</h2>
+        
+        <div class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <form id = "addForm" class="text-center">
+            <ul class = "list-group" id = "tasks"></ul>
+        </form>    
+    </div>
+</body>
+</html>
